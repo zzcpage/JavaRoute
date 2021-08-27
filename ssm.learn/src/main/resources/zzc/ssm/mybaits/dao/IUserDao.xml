@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+namespace 指定具体那个DAO
+对于resources中的映射结构要和dao也就是Mapper中的结构保持一致（看包名路径即可)
+对于mapper映射文件，名称要个dao的名称一直即
+IUserDao对于IUserDao.xml
+-->
+<mapper namespace="zzc.ssm.mybaits.dao.IUserDao">
+
+    <!-- 配置支持二级缓存 -->
+    <cache/>
+    <!-- 对于重复的sql语句可以单独抽取出来 作为sql语句进行插入-->
+    <sql id="defaultUser">
+        select * from users
+    </sql>
+
+
+    <!--配置查询索引
+        id表示DAO的方法名称
+        resultType指定结果封装
+    -->
+    <!-- 通过if语句可以进行多条件条件查询 满足test的条件才能够被执行-->
+    <!-- 由于起了别名所以只需要用users即可-->
+    <!-- 配置支持二级缓存 -->
+    <select id="findAll" parameterType="users"  resultType="users" useCache="true">
+        <include refid="defaultUser"></include> where  1 = 1
+        <if test="username!=null"> and username=#{username}</if>
+        <if test="sex != null"> and sex=#{sex}</if>
+    </select>
+
+
+
+
+
+    <!-- 通过 where标签也可以实现多条件查询-->
+<!--    <select id="findAll" parameterType="users"  resultType="users">-->
+<!--        select * from users -->
+<!--        <where>-->
+<!--            <if test="username!=null"> and username=#{username}</if>-->
+<!--            <if test="sex != null"> and sex=#{sex}</if>-->
+<!--        </where>-->
+<!--    </select>-->
+
+
+
+    <!-- 动态sql语句 ，对于集合参数的操作，通过foreach进行遍历即可 -->
+    <select id="findUsrById" parameterType="zzc.ssm.mybaits.domain.QueryVO" resultType="zzc.ssm.mybaits.domain.Users">
+            select * from users
+            <where>
+                <if test="ids != null and ids.size()>0">
+                    <foreach collection="ids" open="and id in(" close=")" item="id" separator=",">
+                        #{id}
+                    </foreach>
+                </if>
+            </where>
+    </select>
+
+<!-- 数据库关系
+    单个的实体关联通过association封装关联实体
+    多个实体关联则通过collection封装关联实体
+    一对一：通过association进行实体封装
+    一对多：通过collection进行实体封装
+    多对一：通过collection进行实体封装
+    多对多：通过collection进行实体封装
+    如果要实现多表查询，并且在查询的同时获取到对应关联实体的信息。则需要通过
+    ResultMap进行结果集映射，封装相关联的实体信息
+-->
+
+
+
+   <!-- 多表查询 -->
+<!--    <resultMap id="userMap" type="获取到的实体">-->
+<!--        &lt;!&ndash; 用于查询的关键字 &ndash;&gt;-->
+<!--        <id property="属性" column="表项"></id>-->
+<!--        &lt;!&ndash; 获取的数据项 &ndash;&gt;-->
+<!--        <result property="" column=""></result>-->
+<!--        <result property="" column=""></result>-->
+<!--        &lt;!&ndash; 封装相关联的实体信息-->
+<!--            一对一关系通过association进行封装单个关联实体-->
+<!--        &ndash;&gt;-->
+<!--        <association property="结果实体的属性"  javaType="属性类型">-->
+<!--            &lt;!&ndash; 用于查询的关键字 &ndash;&gt;-->
+<!--            <id property="属性" column="表项"></id>-->
+<!--            &lt;!&ndash; 获取的数据项 &ndash;&gt;-->
+<!--            <result property="" column=""></result>-->
+<!--            <result property="" column=""></result>-->
+<!--        </association>-->
+<!--        &lt;!&ndash; 封装相关联的实体信息-->
+<!--            一对多关系通过collection进行封装单个关联实体-->
+<!--        &ndash;&gt;-->
+<!--        <collection property="返回结果中实体属性名称" ofType="关联实体的类型">-->
+<!--            &lt;!&ndash; 用于查询的关键字 &ndash;&gt;-->
+<!--            <id property="属性" column="表项"></id>-->
+<!--            &lt;!&ndash; 获取的数据项 &ndash;&gt;-->
+<!--            <result property="" column=""></result>-->
+<!--            <result property="" column=""></result>-->
+<!--        </collection>-->
+<!--    </resultMap>-->
+
+    <!-- 懒加载的实现 -->
+
+<!--        <resultMap id="userMap" type="获取到的实体">-->
+<!--            &lt;!&ndash; 用于查询的关键字 &ndash;&gt;-->
+<!--            <id property="属性" column="表项"></id>-->
+<!--            &lt;!&ndash; 获取的数据项 &ndash;&gt;-->
+<!--            <result property="" column=""></result>-->
+<!--            <result property="" column=""></result>-->
+<!--            &lt;!&ndash; 封装相关联的实体信息-->
+<!--                一对一关系通过association进行封装单个关联实体-->
+<!--            &ndash;&gt;-->
+<!--            <association property="结果实体的属性"  javaType="属性类型" select="对应实体方法的查询方法，用于获取到对应关联的实体"-->
+<!--                         column="这里也就是根据什么进行查询对应关联的实体 ， 这里通过这个表中的id去查询另一个表对应的实体，参数:id">-->
+<!--                &lt;!&ndash; 用于查询的关键字 &ndash;&gt;-->
+<!--                <id property="属性" column="表项"></id>-->
+<!--                &lt;!&ndash; 获取的数据项 &ndash;&gt;-->
+<!--                <result property="" column=""></result>-->
+<!--                <result property="" column=""></result>-->
+<!--            </association>-->
+<!--        </resultMap>-->
+<!--    &lt;!&ndash; 这样就可以实现 懒加载的方式，需要用的时候，才进行查询对应的用户的信息 &ndash;&gt;-->
+<!--    <select id="方法名称" resultMap="userMap">-->
+<!--        select * from users-->
+<!--   </select>-->
+
+<!--    &lt;!&ndash;保存用户信息&ndash;&gt;-->
+<!--    <insert id="insertUser" parameterType="com.domain.User">-->
+<!--        &lt;!&ndash;配置拆入操作后的获取数据的ID-->
+<!--            keproperty 表示实体类的属性  keycolummn表示数据库的表的keyColumn resultType表示结果属性 order表示在执行前还是执行后-->
+<!--        &ndash;&gt;-->
+<!--        &lt;!&ndash;可以用于获取插入后用户的ID值&ndash;&gt;-->
+<!--        <selectKey keyProperty="id" keyColumn="id" resultType="int" order="AFTER">-->
+<!--            select last_insert_id() ;-->
+<!--        </selectKey>-->
+<!--        insert into muser(password,amount,namess)values (#{password},#{amount},#{namess})-->
+<!--    </insert>-->
+<!--    &lt;!&ndash;更新用户信息&ndash;&gt;-->
+<!--    <update id="updateUser" parameterType="com.domain.User">-->
+<!--        update muser set password=#{password},name=#{namess} where amount=#{amount}-->
+<!--    </update>-->
+<!--    <delete id="deleteUser" parameterType="java.lang.String">-->
+<!--        delete from muser where amount=#{amount}-->
+<!--    </delete>-->
+<!--    <select id="selectUser" resultType="com.domain.User" parameterType="java.lang.String">-->
+<!--        select * from muser where amount=#{amount}-->
+<!--    </select>-->
+<!--    &lt;!&ndash; select * from muser where amount like  '%#{value}%'可以进行模糊查询&ndash;&gt;-->
+<!--    <select id="selectsUser" resultType="com.domain.User" parameterType="java.lang.String">-->
+<!--        select * from muser where amount like  #{amount}-->
+<!--    </select>-->
+<!--    &lt;!&ndash;获取用户总记录条数&ndash;&gt;-->
+<!--    <select id="getTotalUser" resultType="int">-->
+<!--        select count(id) from muser-->
+<!--    </select>-->
+</mapper>
