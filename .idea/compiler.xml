@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ssm_spring_mvc" />
+        <module name="spring_cloud" />
+        <module name="ssm_spring" />
+        <module name="mybaits_one" />
+        <module name="javase" />
+        <module name="ssm" />
+        <module name="redis" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="java_parent" target="1.5" />
+      <module name="javase" target="1.5" />
+      <module name="mybaits_one" target="1.5" />
+      <module name="redis" target="1.5" />
+      <module name="spring_cloud" target="1.5" />
+      <module name="ssm" target="1.5" />
+      <module name="ssm_mybaits" target="1.5" />
+      <module name="ssm_spring" target="1.5" />
+      <module name="ssm_spring_mvc" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
