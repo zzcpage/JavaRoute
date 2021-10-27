@@ -3,17 +3,15 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/ssm_mybaits/pom.xml" />
-        <option value="$PROJECT_DIR$/ssm_spring_mvc/pom.xml" />
-        <option value="$PROJECT_DIR$/ssm_spring/pom.xml" />
-        <option value="$PROJECT_DIR$/ssm_parent/pom.xml" />
-        <option value="$PROJECT_DIR$/ssm/pom.xml" />
-        <option value="$PROJECT_DIR$/spring_cloud/pom.xml" />
-        <option value="$PROJECT_DIR$/redis/pom.xml" />
-        <option value="$PROJECT_DIR$/javase/pom.xml" />
         <option value="$PROJECT_DIR$/java_parent/pom.xml" />
+        <option value="$PROJECT_DIR$/redis/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_cloud/pom.xml" />
+        <option value="$PROJECT_DIR$/ssm/pom.xml" />
+        <option value="$PROJECT_DIR$/ssm_mybaits/pom.xml" />
+        <option value="$PROJECT_DIR$/ssm_spring/pom.xml" />
+        <option value="$PROJECT_DIR$/ssm_spring_mvc/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" default="false" project-jdk-name="13" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

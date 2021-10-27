@@ -6,25 +6,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="java_algorithm" />
         <module name="ssm_spring_mvc" />
         <module name="spring_cloud" />
+        <module name="maven" />
         <module name="ssm_spring" />
         <module name="mybaits_one" />
-        <module name="javase" />
         <module name="ssm" />
         <module name="redis" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="java_parent" target="1.5" />
-      <module name="javase" target="1.5" />
-      <module name="mybaits_one" target="1.5" />
-      <module name="redis" target="1.5" />
-      <module name="spring_cloud" target="1.5" />
-      <module name="ssm" target="1.5" />
-      <module name="ssm_mybaits" target="1.5" />
-      <module name="ssm_spring" target="1.5" />
-      <module name="ssm_spring_mvc" target="1.5" />
+      <module name="java_algorithm" target="8" />
+      <module name="java_parent" target="8" />
+      <module name="javase" target="8" />
+      <module name="maven" target="8" />
+      <module name="mybaits_one" target="8" />
+      <module name="redis" target="8" />
+      <module name="spring_cloud" target="8" />
+      <module name="ssm" target="8" />
+      <module name="ssm_mybaits" target="8" />
+      <module name="ssm_spring" target="8" />
+      <module name="ssm_spring_mvc" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

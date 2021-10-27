@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/javase/java_algorithm/java_algorithm.iml" filepath="$PROJECT_DIR$/javase/java_algorithm/java_algorithm.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java_in_deep_study.iml" filepath="$PROJECT_DIR$/.idea/java_in_deep_study.iml" />
       <module fileurl="file://$PROJECT_DIR$/java_parent/java_parent.iml" filepath="$PROJECT_DIR$/java_parent/java_parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/javase/javase.iml" filepath="$PROJECT_DIR$/javase/javase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_parent/maven/maven.iml" filepath="$PROJECT_DIR$/java_parent/maven/maven.iml" />
       <module fileurl="file://$PROJECT_DIR$/ssm_mybaits/mybaits_one/mybaits_one.iml" filepath="$PROJECT_DIR$/ssm_mybaits/mybaits_one/mybaits_one.iml" />
       <module fileurl="file://$PROJECT_DIR$/redis/redis.iml" filepath="$PROJECT_DIR$/redis/redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_cloud/spring_cloud.iml" filepath="$PROJECT_DIR$/spring_cloud/spring_cloud.iml" />
